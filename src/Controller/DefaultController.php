@@ -8,6 +8,9 @@
 
 namespace App\Controller;
 
+use App\GreetingGenerator;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -17,9 +20,11 @@ class DefaultController extends AbstractController
      * @Route("/hello/{name}")
      */
 
-    public function index($name)
+    public function index($name, LoggerInterface $logger, GreetingGenerator $generator)
     {
-        return $this->render('default/index.html.twig', ['name' => $name,]);
+        $greeting = $generator->getRandomGreeting();
+
+        return new $logger->info("$greeting $name!");
     }
     /**
      * @Route("/yay")
