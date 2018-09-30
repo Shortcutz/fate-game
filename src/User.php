@@ -7,6 +7,10 @@ namespace App;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * @Entity @Table(name="users")
+ **/
+
 class User
 {
     /**
@@ -19,6 +23,16 @@ class User
      * @var string
      */
     protected $name;
+    /**
+     * @OneToMany(targetEntity="Abilities", mappedBy="visible")
+     * @var Abilities[] An ArrayCollection of Abilities objects.
+     **/
+    protected $visibleAbilities;
+    /**
+     * @OneToMany(targetEntity="Abilities", mappedBy="learned")
+     * @var Abilities[] An ArrayCollection of Abilities objects.
+     **/
+    protected $learnedAbilities;
 
     public function getId()
     {
@@ -34,9 +48,6 @@ class User
     {
         $this->name = $name;
     }
-
-    protected $visibleAbilities;
-    protected $learnedAbilities;
 
     public function __construct()
     {

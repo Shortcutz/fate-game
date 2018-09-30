@@ -40,11 +40,11 @@ class Abilities
      */
     protected $status;
     /**
-     * @ManyToOne(targetEntity="User", inversedBy="assignedLearned")
+     * @ManyToOne(targetEntity="User", inversedBy="learnedAbilities")
      **/
     protected $learned;
     /**
-     * @ManyToOne(targetEntity="User", inversedBy="assignedVisible")
+     * @ManyToOne(targetEntity="User", inversedBy="visibleAbilities")
      **/
     protected $visible;
     /**
