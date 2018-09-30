@@ -3,6 +3,8 @@
  * @Entity @Table(name="users")
  */
 
+namespace App;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 class User

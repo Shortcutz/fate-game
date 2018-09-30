@@ -3,6 +3,8 @@
  * @Entity(repositoryClass="AbilityRepository") @Table(name="abilities")
  */
 
+namespace App;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Waffen;
 
