@@ -3,7 +3,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.1.3",
-        "doctrine/orm": "2.4.*",
+        "doctrine/orm": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.2",
