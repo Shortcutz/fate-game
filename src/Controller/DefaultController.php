@@ -24,7 +24,10 @@ class DefaultController extends AbstractController
     {
         $greeting = $generator->getRandomGreeting();
 
-        return new $logger->info("$greeting $name!");
+        $logger->info("$greeting $name!");
+
+        return $this->render('default/index.html.twig', ['name' => $name]);
+
     }
     /**
      * @Route("/yay")

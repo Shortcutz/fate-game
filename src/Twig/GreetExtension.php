@@ -6,6 +6,8 @@
  * Time: 01:37
  */
 
+namespace App\Twig;
+
 use App\GreetingGenerator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

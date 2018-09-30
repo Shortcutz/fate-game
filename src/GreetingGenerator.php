@@ -20,7 +20,7 @@ class GreetingGenerator
 
     public function getRandomGreeting()
     {
-        $greetings = ['Hey', 'Yo', 'Aloha', 'Ehehe', 'Poooow', 'Sup\'', 'Yaaaay', 'Wuh', 'Cool wie man dich kennt'];
+        $greetings = ['Hey', 'Yo', 'Aloha', 'Ehehe..', 'Poooow', 'Sup\'', 'Yaaaay', 'Wuh,', 'So kennt man dich,'];
         $greeting = $greetings[array_rand($greetings)];
 
         $this->logger->info('Using the greeting: '.$greeting);
