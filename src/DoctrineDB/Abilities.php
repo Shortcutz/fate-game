@@ -6,7 +6,6 @@
 namespace App;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Waffen;
 
 /**
  * @Entity @Table(name="abilities")

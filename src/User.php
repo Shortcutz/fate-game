@@ -3,7 +3,7 @@
  * @Entity @Table(name="users")
  */
 
-namespace App;
+namespace App\DoctrineDB;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -21,48 +21,129 @@ class User
     /**
      * @Column(type="string")
      * @var string
+     * @Assert\NotBlank()
      */
     protected $name;
     /**
-     * @OneToMany(targetEntity="Abilities", mappedBy="visible")
-     * @var Abilities[] An ArrayCollection of Abilities objects.
-     **/
-    protected $visibleAbilities;
+     * @Column(type="string")
+     * @var string
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
+    protected $email;
     /**
-     * @OneToMany(targetEntity="Abilities", mappedBy="learned")
-     * @var Abilities[] An ArrayCollection of Abilities objects.
+     * @Column(type="string")
+     * @var string
+     * @Assert\NotBlank()
+     */
+    protected $password;
+    /**
+     * @Column(type="string")
+     * @var string
+     */
+    protected $roles;
+    /**
+     * @OneToMany(targetEntity="Person", mappedBy="userCharacters")
+     * @var Character[] An ArrayCollection of Characters objects.
      **/
-    protected $learnedAbilities;
+    protected $characters;
+    /**
+     * @OneToMany(targetEntity="Person", mappedBy="userServants")
+     * @var Character[] An ArrayCollection of Servants objects.
+     **/
+    protected $servants;
 
-    public function getId()
+    public function __construct()
+    {
+        $this->characters = new ArrayCollection();
+        $this->servants= new ArrayCollection();
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    public function __construct()
+    /**
+     * @return string
+     */
+    public function getEmail(): string
     {
-        $this->visibleAbilities = new ArrayCollection();
-        $this->learnedAbilities = new ArrayCollection();
+        return $this->email;
     }
 
-    public function addVisibleAbility(Abilities $ability)
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
     {
-        $this->visibleAbilities[] = $ability;
+        $this->email = $email;
     }
 
-    public function addLearnedAbility(Abilities $ability)
+    /**
+     * @return string
+     */
+    public function getPassword(): string
     {
-        $this->learnedAbilities[] = $ability;
+        return $this->password;
     }
 
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoles(): string
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param string $roles
+     */
+    public function setRoles(string $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * @return Character[]
+     */
+    public function getCharacters(): array
+    {
+        return $this->characters;
+    }
+
+    /**
+     * @param Character[] $characters
+     */
+    public function setCharacters(Character $character): void
+    {
+        $this->characters = $character;
+    }
 }
