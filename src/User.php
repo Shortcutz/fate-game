@@ -1,9 +1,11 @@
 <?php
+// src/User.php
+
+namespace App;
+
 /**
  * @Entity @Table(name="users")
  */
-
-namespace App\DoctrineDB;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -43,12 +45,12 @@ class User
      */
     protected $roles;
     /**
-     * @OneToMany(targetEntity="Person", mappedBy="userCharacters")
+     * @OneToMany(targetEntity="Character", mappedBy="userCharacters")
      * @var Character[] An ArrayCollection of Characters objects.
      **/
     protected $characters;
     /**
-     * @OneToMany(targetEntity="Person", mappedBy="userServants")
+     * @OneToMany(targetEntity="Character", mappedBy="userServants")
      * @var Character[] An ArrayCollection of Servants objects.
      **/
     protected $servants;

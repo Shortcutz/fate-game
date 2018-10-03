@@ -1,11 +1,13 @@
 <?php
+// src/Character.php
+
+namespace App;
+
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity(repositoryClass="CharacterRepository") @Table(name="characters")
  */
-
-namespace App\DoctrineDB;
-
-use Doctrine\Common\Collections\ArrayCollection;
 
 class Character
 {
@@ -146,7 +148,7 @@ class Character
     protected $killed;
     /**
      * @OneToMany(targetEntity="Traits", mappedBy="chosenTrait")
-     * @var Traits[] An ArrayCollection of Traits objects.
+     * @var \Traits[] An ArrayCollection of Traits objects.
      **/
     protected $traits;
     /**
@@ -529,7 +531,7 @@ class Character
     }
 
     /**
-     * @return Traits[]
+     * @return \Traits[]
      */
     public function getTraits(): array
     {
@@ -537,9 +539,9 @@ class Character
     }
 
     /**
-     * @param Traits[] $traits
+     * @param \Traits[] $traits
      */
-    public function setTraits(Traits $traits): void
+    public function setTraits(\Traits $traits): void
     {
         $this->traits = $traits;
     }

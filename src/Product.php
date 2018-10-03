@@ -1,15 +1,15 @@
 <?php
+// src/Product.php
 
 namespace App;
 
 /**
- * @Entity @Table(name="waffen")
+ * @Entity @Table(name="products")
  **/
-class Waffen
+class Product
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     protected $id;
-
     /** @Column(type="string") **/
     protected $name;
 

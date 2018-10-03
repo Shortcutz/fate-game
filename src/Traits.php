@@ -1,10 +1,11 @@
 <?php
+// src/Traits.php
+
+namespace App;
+
 /**
  * @Entity(repositoryClass="TraitRepository") @Table(name="traits")
  */
-
-namespace App\DoctrineDB;
-
 
 class Traits
 {
@@ -28,6 +29,7 @@ class Traits
 
     /**
      * @return int
+     * @Assert\NotBlank()
      */
     public function getId(): int
     {
